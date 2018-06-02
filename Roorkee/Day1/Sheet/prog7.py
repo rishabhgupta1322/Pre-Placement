@@ -1,7 +1,8 @@
 def length(str):
-    if(str==""):
-        return 0;
-    return str.rindex(str[-1]) + 1
+	c=0
+	for i in str:
+		c+=1
+	return c
 
 def main():
     a = input()
