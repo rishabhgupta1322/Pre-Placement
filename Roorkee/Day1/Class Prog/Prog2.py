@@ -17,4 +17,4 @@ def main():
         print("Numbers are not co-prime")
 
 if __name__=='__main__':
-    main();
+    main()
