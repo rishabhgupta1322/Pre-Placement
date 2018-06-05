@@ -22,7 +22,7 @@ int max(int a,int b, int c){
 }
 
 void training(vector<data> trainedData, vector<data> testData, int k){
-    float accuracy=0; int c1=0,c2=0,c3=0; float a[4];
+    float accuracy=0; float a[4];
     for(int i=0;i<testData.size();i++){
         vector<pair<float,int> > distance;
         for(int j=0;j<trainedData.size();j++){
@@ -32,6 +32,7 @@ void training(vector<data> trainedData, vector<data> testData, int k){
             a[3] = pow(trainedData[j].a[3]-testData[i].a[3],2);
             distance.push_back(make_pair(sqrt(a[0]+a[1]+a[2]+a[3]),trainedData[j].b));
         }
+        int c1=0,c2=0,c3=0;
         sort(distance.begin(),distance.end());
         for(int l=0;l<k;l++){
             if(distance[l].second == 0) c1++;
@@ -40,7 +41,7 @@ void training(vector<data> trainedData, vector<data> testData, int k){
         }
         if(max(c1,c2,c3) == testData[i].b) accuracy += 1;
     }
-    cout << (accuracy/testData.size()) *100 << endl;
+    cout << (accuracy*100)/testData.size() << endl;
 }
 
 int main(){
@@ -59,6 +60,6 @@ int main(){
         if((++c)%51 == 0)
             c = 1;
     }
-    training(trainingData,testData,84);
+    training(trainingData,testData,25);
     return 0;
 }
