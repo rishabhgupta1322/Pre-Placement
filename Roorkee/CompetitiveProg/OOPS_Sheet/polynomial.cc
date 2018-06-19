@@ -26,10 +26,10 @@ class polynomial{
         void set(){
             int x,y;
             bool flag=1;
-            cout << "Enter coefficient and exp and -1 to end the input" << endl;
+            cout << "Enter coefficient and exp and 0 to end the input" << endl;
             while(flag){
                 cin >> x;
-                if(x==-1)
+                if(!x)
                     flag=0;
                 if(flag){
                     cin >> y;
@@ -151,8 +151,8 @@ class polynomial{
                     }
                 }
             }
-            return res;
             sort(res.a.begin(),res.a.end(),compare);
+            return res;
         }
 
         void operator *=(polynomial obj){
